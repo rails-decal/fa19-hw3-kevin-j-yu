@@ -1,0 +1,10 @@
+<h1>Update</h1>
+
+<%= form_with local: true, method: "get" do |f| %>
+    <p>
+    City <%= f.text_field :name %>
+    Population <%= f.text_field :population %>
+    Most Famous Landmark <%= f.text_field :landmark %>
+    </p>
+    <%= f.submit "Update" %>
+<% end %>

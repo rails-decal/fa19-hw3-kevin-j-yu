@@ -1,7 +1,5 @@
-<h1>Hello <%= @name %>!</h1>
-
 <% if not @w.nil? %>
-	<h1><%= @w[:city] %></h1>
+	<h1><%= @city %></h1>
 	<p>
 		It's <%= @temperature %>°F
 		and it looks like <%= @w[:description] %>
@@ -12,12 +10,12 @@
     <%= f.submit %>
 <% end %>
 
-<% City.all.each do |c| %>
-    <% if not c.nil? %>
+<% City.all.values.each do |c| %>
+    <% if not c.nil? and not c.weather.nil? %>
         <h1> <%= c.name %></h1>
         <p>
-            It's <%= c.temperature %>°F
-            and it looks like <%= c.description %>
+            It's <%= (9.0 / 5) * (c.weather[:temperature] - 273) + 32 %>°F
+            and it looks like <%= c.weather[:description] %>
         </p>
     <% end %>
 <% end %>

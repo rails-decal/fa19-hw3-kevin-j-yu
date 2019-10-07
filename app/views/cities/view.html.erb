@@ -1,0 +1,11 @@
+<h1>View</h1>
+
+<% City.all.values.each do |city| %>
+    <% if not @name or @name == city.name %>
+        <p>
+        Name: <%= city.name %>
+        Population: <%= city.population %>
+        Landmark: <%= city.landmark %>
+        </p>
+    <% end %>
+<% end %>
